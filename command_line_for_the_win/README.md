@@ -1,8 +1,8 @@
-#Command line for the win
+# Command line for the win
 
 This is a project to demostrate the use of the SFTP protocol, transfering some screanshots of the CMD CHALLENGE to the sandvox environment.
 
-##Steps I used to transfer the files
+## Steps I used to transfer the files
 1. First I made the screenshots on my local machine
 2. Then I went to the "My Sandboxes" page on the intranet and copied the SFTP link for my sandbox
 3. After that I opened a terminal on my local machine on the directory where the files are located and pasted the link

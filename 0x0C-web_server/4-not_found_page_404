@@ -7,5 +7,9 @@ sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" >  /var/www/html/index.html
 
 sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/ permanent;' /etc/nginx/sites-available/default
+
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html > /dev/null
+sudo sed -i "46i error_page 404 /custom_404.html;" /etc/nginx/sites-available/default
+
 sudo service nginx restart
 

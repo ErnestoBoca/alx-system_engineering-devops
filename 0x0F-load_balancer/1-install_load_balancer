@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Load balancer configuration
+
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+
+echo "
+frontend eboca
+	bind *:80
+	mode http
+	default_backend app
+
+backend app
+	balance roundrobin
+	server 197971-web-01 100.26.157.87:80 check
+	server 197971-web-02 100.25.10.113:80 check" | 
+	sudo tee -a /etc/haproxy/haproxy.cfg > /dev/null
+
+sudo service haproxy restart

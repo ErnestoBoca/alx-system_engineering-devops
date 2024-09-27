@@ -74,10 +74,11 @@ def all_to_JSON():
     for user in users:
         users_dict[user.get("id")] = []
         for task in tasks:
-            users_dict.get(user.get("id")).append(
-                          {"username": user.get("username"),
-                           "task": task.get("title"),
-                           "completed": task.get("completed")})
+            if task.get("userId") == user.get("id"):
+                users_dict.get(user.get("id")).append(
+                              {"username": user.get("username"),
+                               "task": task.get("title"),
+                               "completed": task.get("completed")})
     file_name = "todo_all_employees.json"
     with open(file_name, 'w', encoding='utf-8') as json_file:
         json.dump(users_dict, json_file)
